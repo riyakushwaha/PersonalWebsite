@@ -5,6 +5,7 @@ body{
     margin: 0;
 }
 
+
 /*--------------------------- Title Section */
 .container-fluid{
 padding: 2% 15%;
@@ -14,6 +15,9 @@ padding: 2% 15%;
     background: #fbecec;
 }
 
+nav{
+    position: fixed;
+}
 .nav-img{
     border-radius: 50%;
     width: 50px;
@@ -34,13 +38,13 @@ padding: 2% 15%;
 .downloadbtn{
             margin:  20px 20px 20px 0;
             background: #c9485b;
-            padding: 5px;
+            
         }
         
 .row{
     display:flex;
     padding: 8% 0; 
-    align-items: center;
+    
   
 }
 
@@ -57,26 +61,30 @@ padding: 2% 15%;
 
 
 /* AboutMe Section */
-#about, #contact{
-    padding: 0 20%;
+#about{
+    padding: 3% 20%;
 }
 
 
 .mypic{
   
     width: 90%;
+    margin: 0 auto 0 auto;
       
     
 }
 
 #projects{
     background: #fbecec;
-   padding: 5% 20%;
+   padding: 6% 20% 0 20%;
 }
 
+.social{
+    color:  #c9485b;
+}
 
 .pic1{
-    width: 60%;
+    width: 100%;
     margin-bottom: 10%;
 }
 
@@ -86,14 +94,13 @@ padding: 2% 15%;
 
 #contact{
     background: #c9485b;
-    
- 
-    
+    padding: 2% 40%;   
+    text-align: center; 
+    color: #fbecec;
 }
 
-.socialmedia{
-    margin: 0 auto;
-}
+
+
 .social-icon{
     
     color: black;
