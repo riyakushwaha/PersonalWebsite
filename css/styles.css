@@ -5,7 +5,9 @@ body{
     margin: 0;
 }
 
-
+h6 > a, h6> a:hover{
+color: #c9485b;
+}
 /*--------------------------- Title Section */
 .container-fluid{
 padding: 2% 15%;
@@ -17,6 +19,7 @@ padding: 2% 15%;
 
 nav{
     position: fixed;
+    top: 0;
 }
 .nav-img{
     border-radius: 50%;
@@ -40,6 +43,8 @@ nav{
             background: #c9485b;
             
         }
+
+
         
 .row{
     display:flex;
@@ -48,8 +53,12 @@ nav{
   
 }
 
+ul{
+list-style-type: none;
+}
+
 .text{
-    padding:  5% 0 0 26%;
+    padding:  14% 0 0 26%;
 } 
 
 .col-lg-6  h5{
@@ -59,9 +68,15 @@ nav{
 
 }
 
+th, td {
+    padding: 5px;
+    vertical-align: top;
+  } 
+ 
+
 
 /* AboutMe Section */
-#about{
+#about, #roles{
     padding: 3% 20%;
 }
 
@@ -74,9 +89,24 @@ nav{
     
 }
 
+.likepic{
+    width: 10%;
+    float: right;
+    position: absolute;
+    left: 55%;
+    bottom: 54%;
+}
+
 #projects{
     background: #fbecec;
-   padding: 6% 20% 0 20%;
+   padding: 3% 20% 2% 20%;
+}
+
+#user
+{position: relative;
+    background: #fbecec;
+   padding: 4% 30% 4% 30%;
+   margin: 3%;
 }
 
 .social{
@@ -94,7 +124,7 @@ nav{
 
 #contact{
     background: #c9485b;
-    padding: 2% 40%;   
+    padding: 2% 40% 1% 40%;   
     text-align: center; 
     color: #fbecec;
 }
@@ -104,5 +134,9 @@ nav{
 .social-icon{
     
     color: black;
-    margin: 20px;
+    margin: 10px;
+  }
+
+  a{
+      display: inline-flex;
   }
