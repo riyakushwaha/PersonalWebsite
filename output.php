@@ -21,10 +21,15 @@ $result = $conn->query($sqlmain);
 $id = $result->num_rows;
 $id++;
 //echo $id;
+$text = mysqli_real_escape_string($conn, $_POST["about"]);
+$fileName = basename($_FILES["image"]["name"]); 
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+        $image = $_FILES['image']['tmp_name']; 
+        $imgContent = addslashes(file_get_contents($image));
 
 // $sqltest = "INSERT INTO person (PERSONID, PERSONNAME) VALUES ({$id}, '{$_POST["name"]}')";
 $insertInPerson = "INSERT INTO person VALUES($id, '{$_POST["name"]}', '{$_POST["tagline"]}', '{$_POST["college"]}', '{$_POST["degree"]}', '{$_POST["resume"]}',
-  '{$_POST["picture"]}', '{$_POST["about"]}', '{$_POST["fact"]}', '{$_POST["languages"]}', '{$_POST["hobbies"]}');";
+  '{$imgContent}', '{$text}', '{$_POST["fact"]}', '{$_POST["languages"]}', '{$_POST["hobbies"]}');";
 
 $insertInSocial = "INSERT INTO social(PID, EMAIL, TWITTER, GITHUB, LINKEDIN) VALUES(
   $id, '{$_POST["email"]}','{$_POST["twitter"]}', '{$_POST["github"]}', '{$_POST["linkedin"]}')";
@@ -123,7 +128,11 @@ if ($result->num_rows > 0) {
     $college = $row["COLLEGENAME"];
     $degree = $row["DEGREE"];
     $resume = $row["RESUME"];
-    $pic = $row["PICTURE"];
+    $pic = base64_encode($row["PICTURE"]);
+    
+  	// Get text
+  	
+
     $about = $row["ABOUT"];
     $fact = $row["FACT"];
     $hobbies = $row["HOBBIES"];
@@ -159,7 +168,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "Data Not Found";
+  echo "socialData Not Found";
 }
 
 ?>
@@ -255,7 +264,8 @@ if ($result->num_rows > 0) {
  
 <div class="row">
   <div class="col-lg-5">
-  <img class="mypic" src="<?php echo $pic;?>" alt="Profile Pic">
+  <img class="mypic" src="data:image/jpg;charset=utf8;base64,<?php echo $pic; ?>" alt="Profile Pic">
+  
 </div>
 <div class="col-lg-7">
   <h3 > About Me</h3>
@@ -278,7 +288,7 @@ if ($result->num_rows > 0) {
  
 }
 } else {
-echo "Data Not Found";
+echo "skillData Not Found";
 }
 ?>
 </ol>
@@ -339,7 +349,7 @@ if ($result->num_rows > 0) {
       $link = $row["GITHUBLINK"]
   ?>
 
-      <h6><a href="https://www.github.com/<?php echo $link;?>/">
+      <h6><a href="https://www.github.com/<?php echo  $github;?>/<?php echo $link;?>/">
         <i class="fab fa-github social"></i></a>
 
         <?php echo  $row["PROJNAME"];?> </h6>
@@ -353,7 +363,7 @@ if ($result->num_rows > 0) {
  
 }
 } else {
-echo "Data Not Found";
+echo "projectData Not Found";
 }
 ?>
 
@@ -398,7 +408,7 @@ if ($result->num_rows > 0) {
   $conn->close();
   //echo "CONNECTION CLOSED";
 } else {
-  echo "Data Not Found";
+  echo "roleData Not Found";
 }
 ?>
 

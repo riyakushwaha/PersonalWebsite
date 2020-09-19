@@ -24,13 +24,13 @@
     <div class="col-lg-6">
     <h4> Fill Information for your website ;)</h4>
     <p>All fields are required.</p><br>
-    <form action="output.php" method="post">
+    <form action="output.php" method="post" enctype="multipart/form-data">
 
     <h4>Personal Details</h4><hr>
 
     <div class="form-group">
     <label>Name</label>
-    <input type="text" class="form-control"  placeholder="Enter Name in capital letters" name="name" required>
+    <input type="text" class="form-control"  placeholder="Enter Name in capital letters" name="name" value="" required>
     </div>
 
     <div class="form-group">
@@ -77,8 +77,7 @@
 
     <div class="form-group">
     <label>Picture Link</label>
-    <input type="url" class="form-control"  placeholder="" name="picture" required>
-    </div>
+    <input type="file" class="form-control" placeholder="" name="image"></div>
 
     <div class="form-group">
     <label>Languages Known</label>
